@@ -1,5 +1,9 @@
-﻿using System;
+﻿using RubiksTangle.Properties;
+using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace RubiksTangle
@@ -12,6 +16,7 @@ namespace RubiksTangle
         private PictureBox[] pictureBoxList;
         public event SpeedHandler ChangeSpeedEvent;
         public delegate void SpeedHandler(int diff);
+        private static ResourceManager rm = Resources.ResourceManager;
 
         public Form1()
         {
@@ -30,7 +35,7 @@ namespace RubiksTangle
 
         private void PlaceCard(BoardField field)
         {
-            Image flipimage = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + field.getCard().getFilename() + ".jpg");
+            Image flipimage = (Bitmap)rm.GetObject(field.getCard().getFilename());
             int turns = 4 - field.getCardPosition();
             for (int i = 0; i < turns; i++)
             {
@@ -67,7 +72,9 @@ namespace RubiksTangle
 
         private void ShowTriedCard(Card card)
         {
-            fieldForNewCard.Image = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + card.getFilename() + ".jpg");
+           
+            Image image = (Bitmap)rm.GetObject(card.getFilename());
+            fieldForNewCard.Image = image;
         }
 
 

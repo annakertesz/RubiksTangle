@@ -1,0 +1,8 @@
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Release\RubiksTangle.exe.config
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Release\RubiksTangle.exe
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Release\RubiksTangle.pdb
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Release\RubiksTangle.Form1.resources
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Release\RubiksTangle.Properties.Resources.resources
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Release\RubiksTangle.csproj.GenerateResource.Cache
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Release\RubiksTangle.exe
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Release\RubiksTangle.pdb
