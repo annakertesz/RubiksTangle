@@ -1,0 +1,13 @@
+﻿
+            /*addImage();
+            MessageBox.Show("fsdsd");
+            Image flipimage = field1.Image;
+            flipimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            field1.Image = flipimage;*/
+
+			public void AddImage(Card card)
+        {
+            Card firstA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
+            Controls.Add(field1);
+            field1.ImageLocation = @"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + firstA.getFilename() + ".jpg";
+        }
