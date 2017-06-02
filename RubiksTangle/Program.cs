@@ -17,7 +17,6 @@ namespace RubiksTangle
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form1 form = new Form1();
-            form.Size = new System.Drawing.Size(650, 800);
             Application.Run(form);
             
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Threading;
 
 namespace RubiksTangle
 {
@@ -9,14 +10,16 @@ namespace RubiksTangle
         private BoardField leftDependency;
         private ArrayList formerNeighbours;
         public event FieldHandler PlacedEvent;
-        public delegate void FieldHandler(Card card);
+        public delegate void FieldHandler(BoardField field);
+        private int indexOfField;
 
 
-        public BoardField(BoardField topDependency, BoardField leftDependency)
+        public BoardField(BoardField topDependency, BoardField leftDependency, int index)
         {
             this.topDependency = topDependency;
             this.leftDependency = leftDependency;
             formerNeighbours = new ArrayList();
+            indexOfField = index;
         }
 
 
@@ -28,6 +31,7 @@ namespace RubiksTangle
             }
         }
 
+        public int getIndexOfField() { return indexOfField; }
 
         public bool placeCard(Card cardToInsert, Hand hand)
         {
@@ -51,7 +55,8 @@ namespace RubiksTangle
             this.card = cardToInsert;
             if (PlacedEvent != null)
             {
-                PlacedEvent(card);
+                PlacedEvent(this);
+                Thread.Sleep(500);
             }
             
             clearHistory();

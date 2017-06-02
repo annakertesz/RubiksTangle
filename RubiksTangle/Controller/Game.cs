@@ -9,6 +9,8 @@ namespace RubiksTangle
         private Board board;
         private Hand hand;
         private int currentField;
+        public event RemoveHandler RemoveEvent;
+        public delegate void RemoveHandler(int indexOfField);
 
 
         public Game(BoardField[] fields)
@@ -36,17 +38,30 @@ namespace RubiksTangle
             Console.WriteLine("I start makePuzzle");
             while (hand.size() > 0)
             {
-                if (currentField > 1) board.getField(currentField - 1).removeCard(hand);
-                if (placeCard(currentField - 1)) break;
+                if (currentField > 1)
+                {
+                    board.getField(currentField - 1).removeCard(hand);
+                    if (RemoveEvent != null)
+                    {
+                        RemoveEvent(currentField - 1);
+                        Thread.Sleep(500);
+                    }
+                }
+
+
+                    if (placeCard(currentField - 1)) break;
             }
             Console.WriteLine (board.toString());
+            foreach (BoardField field in board.fields)
+            {
+                Console.WriteLine(field.getCard().getActualPosition() + " " + field.getCardPosition());
+            }
 
         }
 
 
         private bool placeCard(int indexOfField)
         {
-            Console.WriteLine("I place a card");
             currentField = indexOfField;
             if (currentField == 9) return true;
             if (indexOfField == 0)

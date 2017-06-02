@@ -6,7 +6,7 @@ namespace RubiksTangle
 {
     public class Board
     {
-        private BoardField[] fields;
+        public BoardField[] fields;
         public ArrayList formerCards;
 
 
