@@ -10,11 +10,15 @@ namespace RubiksTangle
         private Board board;
         private Hand hand;
         private int currentField;
+
+        public event CardHandler TryCardEvent;
+        public delegate void CardHandler(Card card);
+
         public event RemoveHandler RemoveEvent;
         public delegate void RemoveHandler(int indexOfField);
         public static int speed;
         private Form1 form;
-
+        
 
         public Game(BoardField[] fields, Form1 runningForm)
         {
@@ -91,6 +95,11 @@ namespace RubiksTangle
                 foreach (Card card in hand.getHand())
                 {
                     if (board.getField(indexOfField - 1).wasNeighbour(card)) continue;
+                    if (TryCardEvent != null)
+                    {
+                        TryCardEvent(card);
+                        Thread.Sleep(Game.speed/4);
+                    }
                     if (board.getField(indexOfField).placeCard(card, hand))
                     {
                         board.getField(indexOfField - 1).addNeighbourhood(card);

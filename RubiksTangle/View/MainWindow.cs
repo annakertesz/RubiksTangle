@@ -57,7 +57,7 @@ namespace RubiksTangle
             {
                 field.PlacedEvent += PlaceCard;
             }
-
+            game.TryCardEvent += ShowTriedCard;
             game.RemoveEvent += RemoveCard;
         }
 
@@ -68,6 +68,12 @@ namespace RubiksTangle
             {
                 Controls.Add(field);
             }
+        }
+
+
+        private void ShowTriedCard(Card card)
+        {
+            fieldForNewCard.Image = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + card.getFilename() + ".jpg");
         }
         
 
@@ -90,7 +96,7 @@ namespace RubiksTangle
         {
             if (ChangeSpeedEvent != null)
             {
-                ChangeSpeedEvent(1);
+                ChangeSpeedEvent(-1);
             }
 
         }
@@ -99,7 +105,7 @@ namespace RubiksTangle
         {
             if (ChangeSpeedEvent != null)
             {
-                ChangeSpeedEvent(-1);
+                ChangeSpeedEvent(1);
             }
         }
     }
