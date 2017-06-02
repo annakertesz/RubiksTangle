@@ -17,6 +17,8 @@ namespace RubiksTangle
         private Game game;
         String ready;
         private PictureBox[] pictureBoxList;
+        public event SpeedHandler ChangeSpeedEvent;
+        public delegate void SpeedHandler(int diff);
 
         public Form1()     
         {
@@ -27,7 +29,7 @@ namespace RubiksTangle
         {
             addFields();
             fields = getMediumBoard();
-            game = new Game(fields);
+            game = new Game(fields, this);
             SubscribeToFields();
             ready = game.startNewGame();
         }
@@ -86,7 +88,19 @@ namespace RubiksTangle
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (ChangeSpeedEvent != null)
+            {
+                ChangeSpeedEvent(1);
+            }
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ChangeSpeedEvent != null)
+            {
+                ChangeSpeedEvent(-1);
+            }
         }
     }
 }

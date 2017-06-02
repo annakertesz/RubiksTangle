@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace RubiksTangle
 {
@@ -11,13 +12,23 @@ namespace RubiksTangle
         private int currentField;
         public event RemoveHandler RemoveEvent;
         public delegate void RemoveHandler(int indexOfField);
+        public static int speed;
+        private Form1 form;
 
 
-        public Game(BoardField[] fields)
+        public Game(BoardField[] fields, Form1 runningForm)
         {
             this.board = new Board(fields);
             this.hand = new Hand(getTwoSidedCards());
             this.currentField = 1;
+            speed = 200;
+            form = runningForm;
+            SubscribeToSpeedChange();
+        }
+
+        private void SubscribeToSpeedChange()
+        {
+            form.ChangeSpeedEvent += changeSpeed;
         }
 
         public static void CallToChildThread()
@@ -32,6 +43,12 @@ namespace RubiksTangle
             return "finished";
         }
 
+        private void changeSpeed(int diff)
+        {
+
+            speed = speed + diff * 100 <= 500 && speed + diff * 100 >= 0 ? speed + diff * 100 : speed;
+        }
+
 
         public void makePuzzle()
         {
@@ -44,7 +61,7 @@ namespace RubiksTangle
                     if (RemoveEvent != null)
                     {
                         RemoveEvent(currentField - 1);
-                        Thread.Sleep(500);
+                        Thread.Sleep(speed);
                     }
                 }
 

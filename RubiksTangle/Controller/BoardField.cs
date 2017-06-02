@@ -20,6 +20,7 @@ namespace RubiksTangle
             this.leftDependency = leftDependency;
             formerNeighbours = new ArrayList();
             indexOfField = index;
+            
         }
 
 
@@ -56,7 +57,7 @@ namespace RubiksTangle
             if (PlacedEvent != null)
             {
                 PlacedEvent(this);
-                Thread.Sleep(500);
+                Thread.Sleep(Game.speed);
             }
             
             clearHistory();

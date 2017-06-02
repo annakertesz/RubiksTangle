@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.field1 = new System.Windows.Forms.PictureBox();
             this.field2 = new System.Windows.Forms.PictureBox();
             this.field3 = new System.Windows.Forms.PictureBox();
@@ -55,15 +55,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.fieldForNewCard)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // startButton
             // 
-            this.button1.Location = new System.Drawing.Point(606, 537);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(476, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.startButton.Location = new System.Drawing.Point(606, 537);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(476, 63);
+            this.startButton.TabIndex = 0;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // field1
             // 
@@ -140,7 +140,7 @@
             // fieldForNewCard
             // 
             this.fieldForNewCard.Location = new System.Drawing.Point(727, 200);
-            this.fieldForNewCard.Name = "pictureBox1";
+            this.fieldForNewCard.Name = "fieldForNewCard";
             this.fieldForNewCard.Size = new System.Drawing.Size(203, 200);
             this.fieldForNewCard.TabIndex = 11;
             this.fieldForNewCard.TabStop = false;
@@ -149,16 +149,16 @@
             // 
             this.labelNewCard.AutoSize = true;
             this.labelNewCard.Location = new System.Drawing.Point(724, 184);
-            this.labelNewCard.Name = "label1";
+            this.labelNewCard.Name = "labelNewCard";
             this.labelNewCard.Size = new System.Drawing.Size(80, 13);
             this.labelNewCard.TabIndex = 12;
             this.labelNewCard.Text = "I want to place:";
             // 
-            // Speed
+            // speed
             // 
             this.speed.AutoSize = true;
             this.speed.Location = new System.Drawing.Point(808, 474);
-            this.speed.Name = "label2";
+            this.speed.Name = "speed";
             this.speed.Size = new System.Drawing.Size(41, 13);
             this.speed.TabIndex = 13;
             this.speed.Text = "Speed:";
@@ -181,6 +181,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "-";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -201,7 +202,7 @@
             this.Controls.Add(this.field3);
             this.Controls.Add(this.field2);
             this.Controls.Add(this.field1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.startButton);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.field1)).EndInit();
@@ -221,7 +222,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.PictureBox field1;
         private System.Windows.Forms.PictureBox field2;
         private System.Windows.Forms.PictureBox field3;
