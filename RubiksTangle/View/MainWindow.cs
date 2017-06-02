@@ -40,7 +40,7 @@ namespace RubiksTangle
             for (int i = 0; i < card.getActualPosition()+1; i++)
             {
                 flipimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            }            
+            }          
             field1.Image = flipimage;
         }
 
