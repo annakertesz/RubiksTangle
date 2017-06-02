@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RubiksTangle
@@ -15,30 +9,29 @@ namespace RubiksTangle
 
         private BoardField[] fields;
         private Game game;
-        String ready;
         private PictureBox[] pictureBoxList;
         public event SpeedHandler ChangeSpeedEvent;
         public delegate void SpeedHandler(int diff);
 
-        public Form1()     
+        public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            addFields();
-            fields = getMediumBoard();
+            clearBoard();
             game = new Game(fields, this);
             SubscribeToFields();
-            ready = game.startNewGame();
+            game.startNewGame();
         }
-        
-        
+
+
         private void PlaceCard(BoardField field)
         {
             Image flipimage = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + field.getCard().getFilename() + ".jpg");
-            int turns = field.getIndexOfField() == 0 ?  field.getCardPosition()  : 4 - field.getCardPosition();
+            int turns = 4 - field.getCardPosition();
             for (int i = 0; i < turns; i++)
             {
                 flipimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
@@ -53,10 +46,11 @@ namespace RubiksTangle
 
         private void SubscribeToFields()
         {
-            foreach(BoardField field in fields)
+            foreach (BoardField field in fields)
             {
                 field.PlacedEvent += PlaceCard;
             }
+            game.TurnEvent += PlaceCard;
             game.TryCardEvent += ShowTriedCard;
             game.RemoveEvent += RemoveCard;
         }
@@ -75,7 +69,7 @@ namespace RubiksTangle
         {
             fieldForNewCard.Image = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\" + card.getFilename() + ".jpg");
         }
-        
+
 
         private BoardField[] getMediumBoard()
         {
@@ -107,6 +101,30 @@ namespace RubiksTangle
             {
                 ChangeSpeedEvent(1);
             }
+        }
+
+        private void setInitialImages()
+        {
+            foreach (PictureBox field in pictureBoxList)
+            {
+                field.Image = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\semaS.jpg");
+            }
+            fieldForNewCard.Image= Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\semaS.jpg");
+        }
+
+        private void clearBoard()
+        {
+            foreach (PictureBox field in pictureBoxList)
+            {
+                field.Image = null;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            addFields();
+            fields = getMediumBoard();
+            setInitialImages();
         }
     }
 }

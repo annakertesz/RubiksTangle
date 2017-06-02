@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.startButton = new System.Windows.Forms.Button();
             this.field1 = new System.Windows.Forms.PictureBox();
             this.field2 = new System.Windows.Forms.PictureBox();
@@ -67,6 +68,7 @@
             // 
             // field1
             // 
+            this.field1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field1.Location = new System.Drawing.Point(0, 0);
             this.field1.Name = "field1";
             this.field1.Size = new System.Drawing.Size(200, 200);
@@ -75,6 +77,7 @@
             // 
             // field2
             // 
+            this.field2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field2.Location = new System.Drawing.Point(200, 0);
             this.field2.Name = "field2";
             this.field2.Size = new System.Drawing.Size(200, 200);
@@ -83,6 +86,7 @@
             // 
             // field3
             // 
+            this.field3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field3.Location = new System.Drawing.Point(400, 0);
             this.field3.Name = "field3";
             this.field3.Size = new System.Drawing.Size(200, 200);
@@ -91,6 +95,7 @@
             // 
             // field4
             // 
+            this.field4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field4.Location = new System.Drawing.Point(0, 200);
             this.field4.Name = "field4";
             this.field4.Size = new System.Drawing.Size(200, 200);
@@ -99,6 +104,7 @@
             // 
             // field5
             // 
+            this.field5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field5.Location = new System.Drawing.Point(200, 200);
             this.field5.Name = "field5";
             this.field5.Size = new System.Drawing.Size(200, 200);
@@ -107,6 +113,7 @@
             // 
             // field6
             // 
+            this.field6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field6.Location = new System.Drawing.Point(400, 200);
             this.field6.Name = "field6";
             this.field6.Size = new System.Drawing.Size(200, 200);
@@ -115,6 +122,7 @@
             // 
             // field7
             // 
+            this.field7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field7.Location = new System.Drawing.Point(0, 400);
             this.field7.Name = "field7";
             this.field7.Size = new System.Drawing.Size(200, 200);
@@ -123,6 +131,7 @@
             // 
             // field8
             // 
+            this.field8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field8.Location = new System.Drawing.Point(200, 400);
             this.field8.Name = "field8";
             this.field8.Size = new System.Drawing.Size(200, 200);
@@ -131,6 +140,7 @@
             // 
             // field9
             // 
+            this.field9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.field9.Location = new System.Drawing.Point(400, 400);
             this.field9.Name = "field9";
             this.field9.Size = new System.Drawing.Size(200, 200);
@@ -139,35 +149,38 @@
             // 
             // fieldForNewCard
             // 
-            this.fieldForNewCard.Location = new System.Drawing.Point(727, 200);
+            this.fieldForNewCard.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fieldForNewCard.Location = new System.Drawing.Point(882, 0);
             this.fieldForNewCard.Name = "fieldForNewCard";
-            this.fieldForNewCard.Size = new System.Drawing.Size(203, 200);
+            this.fieldForNewCard.Size = new System.Drawing.Size(200, 200);
             this.fieldForNewCard.TabIndex = 11;
             this.fieldForNewCard.TabStop = false;
             // 
             // labelNewCard
             // 
             this.labelNewCard.AutoSize = true;
-            this.labelNewCard.Location = new System.Drawing.Point(724, 184);
+            this.labelNewCard.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewCard.Location = new System.Drawing.Point(684, 0);
             this.labelNewCard.Name = "labelNewCard";
-            this.labelNewCard.Size = new System.Drawing.Size(80, 13);
+            this.labelNewCard.Size = new System.Drawing.Size(194, 33);
             this.labelNewCard.TabIndex = 12;
             this.labelNewCard.Text = "I want to place:";
             // 
             // speed
             // 
             this.speed.AutoSize = true;
-            this.speed.Location = new System.Drawing.Point(808, 474);
+            this.speed.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.speed.Location = new System.Drawing.Point(790, 410);
             this.speed.Name = "speed";
-            this.speed.Size = new System.Drawing.Size(41, 13);
+            this.speed.Size = new System.Drawing.Size(97, 33);
             this.speed.TabIndex = 13;
             this.speed.Text = "Speed:";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(914, 457);
+            this.button2.Location = new System.Drawing.Point(837, 446);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 47);
+            this.button2.Size = new System.Drawing.Size(50, 50);
             this.button2.TabIndex = 14;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = true;
@@ -175,9 +188,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(876, 457);
+            this.button3.Location = new System.Drawing.Point(791, 446);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(41, 47);
+            this.button3.Size = new System.Drawing.Size(50, 50);
             this.button3.TabIndex = 15;
             this.button3.Text = "-";
             this.button3.UseVisualStyleBackColor = true;
@@ -204,7 +217,8 @@
             this.Controls.Add(this.field1);
             this.Controls.Add(this.startButton);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Rublik\'s tangle";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.field1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field3)).EndInit();

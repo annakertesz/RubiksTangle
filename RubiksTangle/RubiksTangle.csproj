@@ -49,7 +49,6 @@
     <Compile Include="Controller\BoardField.cs" />
     <Compile Include="Controller\Card.cs" />
     <Compile Include="Controller\Color.cs" />
-    <Compile Include="Controller\EventStuff.cs" />
     <Compile Include="View\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

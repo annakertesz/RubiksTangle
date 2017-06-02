@@ -10,14 +10,16 @@ namespace RubiksTangle
         private Board board;
         private Hand hand;
         private int currentField;
-
-        public event CardHandler TryCardEvent;
-        public delegate void CardHandler(Card card);
-
-        public event RemoveHandler RemoveEvent;
-        public delegate void RemoveHandler(int indexOfField);
         public static int speed;
         private Form1 form;
+
+        public event CardHandler TryCardEvent;
+        public event RemoveHandler RemoveEvent;
+        public event CardTurnHandler TurnEvent;
+        public delegate void CardHandler(Card card);
+        public delegate void RemoveHandler(int indexOfField);
+        public delegate void CardTurnHandler(BoardField field);
+        
         
 
         public Game(BoardField[] fields, Form1 runningForm)
@@ -35,21 +37,13 @@ namespace RubiksTangle
             form.ChangeSpeedEvent += changeSpeed;
         }
 
-        public static void CallToChildThread()
-        {
-            Console.WriteLine("Child thread starts");
-        }
-
-
-        public String startNewGame()
+        public void startNewGame()
         {
             ThreadPool.QueueUserWorkItem(delegate { makePuzzle(); });
-            return "finished";
         }
 
         private void changeSpeed(int diff)
         {
-
             speed = speed + diff * 100 <= 500 && speed + diff * 100 >= 0 ? speed + diff * 100 : speed;
         }
 
@@ -68,16 +62,8 @@ namespace RubiksTangle
                         Thread.Sleep(speed);
                     }
                 }
-
-
-                    if (placeCard(currentField - 1)) break;
+                if (placeCard(currentField - 1)) break;
             }
-            Console.WriteLine (board.toString());
-            foreach (BoardField field in board.fields)
-            {
-                Console.WriteLine(field.getCard().getActualPosition() + " " + field.getCardPosition());
-            }
-
         }
 
 
@@ -138,6 +124,11 @@ namespace RubiksTangle
             else
             {
                 firstField.turnCard(position + 1);
+                if (TurnEvent != null)
+                {
+                    TurnEvent(firstField);
+                    Thread.Sleep(speed/2);
+                }
             }
             return true;
         }
