@@ -1,8 +1,6 @@
 ﻿using RubiksTangle.Properties;
 using System;
-using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -14,59 +12,69 @@ namespace RubiksTangle
         private BoardField[] fields;
         private Game game;
         private PictureBox[] pictureBoxList;
-        public event SpeedHandler ChangeSpeedEvent;
-        public delegate void SpeedHandler(int diff);
         private static ResourceManager rm = Resources.ResourceManager;
 
+        public event SpeedHandler ChangeSpeedEvent;
+        public delegate void SpeedHandler(int diff);
+        
+        
         public Form1()
         {
             InitializeComponent();
 
         }
 
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            setUpPictureBoxes();
+            fields = getMyBoard();
+            setInitialImages();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-            clearBoard();
+            clearBoardImages();
             game = new Game(fields, this);
-            SubscribeToFields();
+            Subscribes();
             game.startNewGame();
         }
 
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (ChangeSpeedEvent != null)
+            {
+                ChangeSpeedEvent(-1);
+            }
+
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (ChangeSpeedEvent != null)
+            {
+                ChangeSpeedEvent(1);
+            }
+        }
+                         
+  
         private void PlaceCard(BoardField field)
         {
             Image flipimage = (Bitmap)rm.GetObject(field.getCard().getFilename());
-            int turns = 4 - field.getCardPosition();
-            for (int i = 0; i < turns; i++)
+            for (int i = 0; i < 4 - field.getCardPosition(); i++)
             {
                 flipimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
             }
             pictureBoxList[field.getIndexOfField()].Image = flipimage;
         }
 
+
         private void RemoveCard(int indexOfField)
         {
             pictureBoxList[indexOfField].Image = null;
-        }
-
-        private void SubscribeToFields()
-        {
-            foreach (BoardField field in fields)
-            {
-                field.PlacedEvent += PlaceCard;
-            }
-            game.TurnEvent += PlaceCard;
-            game.TryCardEvent += ShowTriedCard;
-            game.RemoveEvent += RemoveCard;
-        }
-
-        private void addFields()
-        {
-            pictureBoxList = new PictureBox[] { field1, field2, field3, field4, field5, field6, field7, field8, field9 };
-            foreach (PictureBox field in pictureBoxList)
-            {
-                Controls.Add(field);
-            }
         }
 
 
@@ -76,9 +84,31 @@ namespace RubiksTangle
             Image image = (Bitmap)rm.GetObject(card.getFilename());
             fieldForNewCard.Image = image;
         }
+        
+            
+        private void setUpPictureBoxes()
+        {
+            pictureBoxList = new PictureBox[] { field1, field2, field3, field4, field5, field6, field7, field8, field9 };
+            foreach (PictureBox pictureBox in pictureBoxList)
+            {
+                Controls.Add(pictureBox);
+            }
+        }
+        
 
-
-        private BoardField[] getMediumBoard()
+        private void Subscribes()
+        {
+            foreach (BoardField field in fields)
+            {
+                field.PlacedEvent += PlaceCard;
+            }
+            game.TurnEvent += PlaceCard;
+            game.TryCardEvent += ShowTriedCard;
+            game.RemoveEvent += RemoveCard;
+        }
+        
+        
+        private BoardField[] getMyBoard()
         {
             BoardField[] fields = new BoardField[9];
             fields[0] = new BoardField(null, null, 0);
@@ -93,45 +123,27 @@ namespace RubiksTangle
             return fields;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (ChangeSpeedEvent != null)
-            {
-                ChangeSpeedEvent(-1);
-            }
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (ChangeSpeedEvent != null)
-            {
-                ChangeSpeedEvent(1);
-            }
-        }
 
         private void setInitialImages()
         {
-            foreach (PictureBox field in pictureBoxList)
+
+            Image image = (Bitmap)rm.GetObject("semaS.jpg");
+
+            foreach (PictureBox pictureBox in pictureBoxList)
             {
-                field.Image = Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\semaS.jpg");
+                pictureBox.Image = image;
             }
-            fieldForNewCard.Image= Image.FromFile(@"c:\users\hudejo\documents\RubiksTangle\RubiksTangle\Img\semaS.jpg");
+            fieldForNewCard.Image= image;
         }
 
-        private void clearBoard()
+
+        private void clearBoardImages()
         {
-            foreach (PictureBox field in pictureBoxList)
+            foreach (PictureBox pictureBox in pictureBoxList)
             {
-                field.Image = null;
+                pictureBox.Image = null;
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            addFields();
-            fields = getMediumBoard();
-            setInitialImages();
-        }
     }
 }

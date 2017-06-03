@@ -216,6 +216,7 @@
             this.Controls.Add(this.field2);
             this.Controls.Add(this.field1);
             this.Controls.Add(this.startButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Rublik\'s tangle";
             this.Load += new System.EventHandler(this.Form1_Load);
