@@ -1,0 +1,15 @@
+C:\Users\hudejo\documents\RubiksTangle\CardTest\obj\Debug\CardTest.csprojResolveAssemblyReference.cache
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\CardTest.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\CardTest.pdb
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\RubiksTangle.exe
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\RubiksTangle.pdb
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\RubiksTangle.exe.config
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\hudejo\documents\RubiksTangle\CardTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\hudejo\documents\RubiksTangle\CardTest\obj\Debug\CardTest.dll
+C:\Users\hudejo\documents\RubiksTangle\CardTest\obj\Debug\CardTest.pdb
