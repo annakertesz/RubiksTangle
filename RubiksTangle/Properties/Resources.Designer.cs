@@ -133,9 +133,9 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fouthA {
+        internal static System.Drawing.Bitmap fourthA {
             get {
-                object obj = ResourceManager.GetObject("fouthA", resourceCulture);
+                object obj = ResourceManager.GetObject("fourthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fouthB {
+        internal static System.Drawing.Bitmap fourthB {
             get {
-                object obj = ResourceManager.GetObject("fouthB", resourceCulture);
+                object obj = ResourceManager.GetObject("fourthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
