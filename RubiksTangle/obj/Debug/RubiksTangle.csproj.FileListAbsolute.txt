@@ -7,3 +7,7 @@ c:\users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Debug\RubiksTangle.cspro
 c:\users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Debug\RubiksTangle.exe
 c:\users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Debug\RubiksTangle.pdb
 c:\users\hudejo\documents\RubiksTangle\RubiksTangle\obj\Debug\RubiksTangle.Form1.resources
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Debug\Castle.Core.dll
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Debug\Moq.dll
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Debug\Castle.Core.xml
+C:\Users\hudejo\documents\RubiksTangle\RubiksTangle\bin\Debug\Moq.xml
