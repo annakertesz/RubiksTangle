@@ -27,18 +27,18 @@ namespace RubiksTangle
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            setUpPictureBoxes();
-            fields = getMyBoard();
-            setInitialImages();
+            SetUpPictureBoxes();
+            fields = GetMyBoard();
+            SetInitialImages();
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clearBoardImages();
+            ClearBoardImages();
             game = new Game(fields, this);
             Subscribes();
-            game.startNewGame();
+            game.StartNewGame();
         }
 
 
@@ -86,7 +86,7 @@ namespace RubiksTangle
         }
         
             
-        private void setUpPictureBoxes()
+        private void SetUpPictureBoxes()
         {
             pictureBoxList = new PictureBox[] { field1, field2, field3, field4, field5, field6, field7, field8, field9 };
             foreach (PictureBox pictureBox in pictureBoxList)
@@ -108,7 +108,7 @@ namespace RubiksTangle
         }
         
         
-        private BoardField[] getMyBoard()
+        private BoardField[] GetMyBoard()
         {
             BoardField[] fields = new BoardField[9];
             fields[0] = new BoardField(null, null, 0);
@@ -124,7 +124,7 @@ namespace RubiksTangle
         }
 
 
-        private void setInitialImages()
+        private void SetInitialImages()
         {
 
             Image image = (Bitmap)rm.GetObject("semaS.jpg");
@@ -137,7 +137,7 @@ namespace RubiksTangle
         }
 
 
-        private void clearBoardImages()
+        private void ClearBoardImages()
         {
             foreach (PictureBox pictureBox in pictureBoxList)
             {
