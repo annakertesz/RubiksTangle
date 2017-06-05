@@ -25,7 +25,7 @@ namespace RubiksTangle
         public Game(BoardField[] fields, Form1 runningForm)
         {
             this.board = new Board(fields);
-            this.hand = new Hand(setTwoSidedCards());
+            this.hand = new Hand(setUpCards());
             this.currentField = 1;
             speed = 200;
             form = runningForm;
@@ -78,7 +78,7 @@ namespace RubiksTangle
             }
             else
             {
-                foreach (Card card in hand.getHand())
+                foreach (Card card in hand.InHand)
                 {
                     if (board.getField(indexOfField - 1).wasNeighbour(card)) continue;
                     if (TryCardEvent != null)
@@ -107,12 +107,12 @@ namespace RubiksTangle
                 hand.remove(firstField.Card);
                 return true;
             }
-            int position = firstField.getCardPosition();
+            int position = firstField.CardPosition;
             if (position == 3)
             {
                 firstField.removeCard(hand);
                 if (board.triedAllPossibilities()) return false;
-                foreach (Card card in hand.getHand())
+                foreach (Card card in hand.InHand)
                 {
                     if (board.wasOnFirstPlace(card)) continue;
                     firstField.placeCard(card, hand);
@@ -134,7 +134,7 @@ namespace RubiksTangle
         }
 
 
-        private ArrayList setTwoSidedCards()
+        private ArrayList setUpCards()
         {
             Card firstA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
             Card secondA = new Card(new Color[] { Color.G, Color.B, Color.R, Color.Y, Color.G, Color.Y, Color.B, Color.R }, "secondA");

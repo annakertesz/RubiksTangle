@@ -64,11 +64,11 @@ namespace RubiksTangle
         private void PlaceCard(BoardField field)
         {
             Image flipimage = (Bitmap)rm.GetObject(field.Card.Filename);
-            for (int i = 0; i < 4 - field.getCardPosition(); i++)
+            for (int i = 0; i < 4 - field.CardPosition; i++)
             {
                 flipimage.RotateFlip(RotateFlipType.Rotate90FlipNone);
             }
-            pictureBoxList[field.getIndexOfField()].Image = flipimage;
+            pictureBoxList[field.IndexOfField].Image = flipimage;
         }
 
 

@@ -39,6 +39,7 @@ namespace RubiksTangle
             Filename = name;
         }
 
+
         public Color[] getEdge(int edge)
         {
             return new Color[] { actualEdges[edge, 0], actualEdges[edge, 1] };

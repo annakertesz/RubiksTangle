@@ -14,13 +14,15 @@ namespace RubiksTangle
         private int indexOfField;
 
         public Card Card { get => card; private set => card = value; }
+        public int IndexOfField { get => indexOfField; private set => indexOfField = value; }
+        public int CardPosition { get => card.ActualPosition; }
 
         public BoardField(BoardField topDependency, BoardField leftDependency, int index)
         {
             this.topDependency = topDependency;
             this.leftDependency = leftDependency;
             formerNeighbours = new ArrayList();
-            indexOfField = index;
+            IndexOfField = index;
             
         }
 
@@ -32,8 +34,7 @@ namespace RubiksTangle
                 hand.add(Card);
             }
         }
-
-        public int getIndexOfField() { return indexOfField; }
+        
 
         public bool placeCard(Card cardToInsert, Hand hand)
         {
@@ -69,12 +70,7 @@ namespace RubiksTangle
 
         public bool isEmpty() { return Card == null; }
 
-
-        public int getCardPosition()
-        {
-            return card.ActualPosition;
-        }
-
+       
 
         public void turnCard(int position)
         {
