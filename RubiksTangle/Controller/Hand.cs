@@ -35,16 +35,16 @@ namespace RubiksTangle
         {
 
             inHand.Remove(card);
-            inHand.Remove(card.getOtherSide());
+            inHand.Remove(card.OtherSide);
         }
 
 
         public void add(Card card)
         {
-            card.setPosition(0);
-            card.getOtherSide().setPosition(0);
+            card.ActualPosition = 0;
+            card.OtherSide.ActualPosition = 0;
             inHand.Add(card);
-            inHand.Add(card.getOtherSide());
+            inHand.Add(card.OtherSide);
         }
 
 

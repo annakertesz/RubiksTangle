@@ -13,6 +13,7 @@ namespace RubiksTangle
         public delegate void FieldHandler(BoardField field);
         private int indexOfField;
 
+        public Card Card { get => card; private set => card = value; }
 
         public BoardField(BoardField topDependency, BoardField leftDependency, int index)
         {
@@ -28,7 +29,7 @@ namespace RubiksTangle
         {
             if (!isEmpty())
             {
-                hand.add(card);
+                hand.add(Card);
             }
         }
 
@@ -40,20 +41,20 @@ namespace RubiksTangle
             int neededPosition = 4;
             if (topDependency != null)
             {
-                int positionToTop = cardToInsert.isEdgesJoinable(topDependency.card.getEdge(2), 0);
+                int positionToTop = cardToInsert.isEdgesJoinable(topDependency.Card.getEdge(2), 0);
                 if (positionToTop == -1) return false;
                 neededPosition = positionToTop;
             }
             if (leftDependency != null)
             {
-                int positionToLeft = cardToInsert.isEdgesJoinable(leftDependency.card.getEdge(1), 3);
+                int positionToLeft = cardToInsert.isEdgesJoinable(leftDependency.Card.getEdge(1), 3);
                 if (neededPosition == 4 || neededPosition == positionToLeft) neededPosition = positionToLeft;
                 else return false;
             }
             if (neededPosition < 0) return false;
             if (neededPosition == 4) neededPosition = 0;
-            cardToInsert.setPosition(neededPosition);
-            this.card = cardToInsert;
+            cardToInsert.ActualPosition = neededPosition;
+            this.Card = cardToInsert;
             if (PlacedEvent != null)
             {
                 PlacedEvent(this);
@@ -66,18 +67,18 @@ namespace RubiksTangle
         }
 
 
-        public bool isEmpty() { return card == null; }
+        public bool isEmpty() { return Card == null; }
 
 
         public int getCardPosition()
         {
-            return card.getActualPosition();
+            return card.ActualPosition;
         }
 
 
         public void turnCard(int position)
         {
-            card.setPosition(position);
+            card.ActualPosition = position;
         }
 
 
@@ -98,10 +99,6 @@ namespace RubiksTangle
             formerNeighbours = new ArrayList();
         }
 
-
-        public Card getCard()
-        {
-            return card;
-        }
+       
     }
 }

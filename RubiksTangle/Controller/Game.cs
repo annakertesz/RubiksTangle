@@ -25,7 +25,7 @@ namespace RubiksTangle
         public Game(BoardField[] fields, Form1 runningForm)
         {
             this.board = new Board(fields);
-            this.hand = new Hand(getTwoSidedCards());
+            this.hand = new Hand(setTwoSidedCards());
             this.currentField = 1;
             speed = 200;
             form = runningForm;
@@ -104,7 +104,7 @@ namespace RubiksTangle
             if (firstField.isEmpty())
             {
                 firstField.placeCard(hand.get(), hand);
-                hand.remove(firstField.getCard());
+                hand.remove(firstField.Card);
                 return true;
             }
             int position = firstField.getCardPosition();
@@ -134,7 +134,7 @@ namespace RubiksTangle
         }
 
 
-        private ArrayList getTwoSidedCards()
+        private ArrayList setTwoSidedCards()
         {
             Card firstA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
             Card secondA = new Card(new Color[] { Color.G, Color.B, Color.R, Color.Y, Color.G, Color.Y, Color.B, Color.R }, "secondA");
@@ -157,15 +157,15 @@ namespace RubiksTangle
             Card ninthB = new Card(new Color[] { Color.Y, Color.R, Color.B, Color.G, Color.Y, Color.G, Color.R, Color.B }, "ninthB");
 
 
-            firstA.setOtherSide(firstB);
-            secondA.setOtherSide(secondB);
-            thirdA.setOtherSide(thirdB);
-            forthA.setOtherSide(forthB);
-            fifthA.setOtherSide(fifthB);
-            sixthA.setOtherSide(sixthB);
-            seventhA.setOtherSide(seventhB);
-            eighthA.setOtherSide(eighthB);
-            ninthA.setOtherSide(ninthB);
+            firstA.OtherSide = firstB;
+            secondA.OtherSide = secondB;
+            thirdA.OtherSide = thirdB;
+            forthA.OtherSide = forthB;
+            fifthA.OtherSide = fifthB;
+            sixthA.OtherSide = sixthB;
+            seventhA.OtherSide = seventhB;
+            eighthA.OtherSide = eighthB;
+            ninthA.OtherSide = ninthB;
             return new ArrayList(new ArrayList(new Card[] {
                 firstA, secondA, thirdA, forthA, fifthA, sixthA, seventhA, eighthA, ninthA,
                 firstB, secondB, thirdB, forthB, fifthB, sixthB, seventhB, eighthB, ninthB}));

@@ -10,49 +10,38 @@ namespace RubiksTangle
         private int actualPosition;
         private String filename;
 
+        public Card OtherSide
+        {
+            get => otherSide;
+            set
+            {
+                otherSide = value;
+                if (value.OtherSide == null) value.OtherSide = this;
+            }
+        }
+        public string Filename { get => filename; private set => filename = value; }
+        public int ActualPosition
+        {
+            get => actualPosition;
+            set
+            {
+                actualEdges = setEdges(value * 2);
+                actualPosition = value;
+            }
+        }
+
 
         public Card(Color[] colors, String name)
         {
             colorsInZeroPosition = colors;
             actualEdges = setEdges(0);
-            actualPosition = 0;
-            filename = name;
+            ActualPosition = 0;
+            Filename = name;
         }
-
-        public String getFilename()
-        {
-            return filename;
-        }
-
-        public Card getOtherSide()
-        {
-            return otherSide;
-        }
-
-
-        public int getActualPosition()
-        {
-            return actualPosition;
-        }
-
 
         public Color[] getEdge(int edge)
         {
             return new Color[] { actualEdges[edge, 0], actualEdges[edge, 1] };
-        }
-
-
-        public void setOtherSide(Card card)
-        {
-            otherSide = card;
-            card.otherSide = this;
-        }
-
-
-        public void setPosition(int newPosition)
-        {
-            actualEdges = setEdges(newPosition * 2);
-            actualPosition = newPosition;
         }
 
 
@@ -85,17 +74,5 @@ namespace RubiksTangle
             }
             return -1;
         }
-
-
-
-        public String toString()
-        {
-            return "    | " + actualEdges[0, 0] + " " + actualEdges[0, 1] + " |\n"
-                   + "    |" + actualEdges[3, 1] + "   " + actualEdges[1, 0] + "|\n"
-                   + "    |" + actualEdges[3, 0] + "   " + actualEdges[1, 1] + "|\n"
-                   + "    | " + actualEdges[2, 1] + " " + actualEdges[2, 0] + " |\n";
-
-        }
     }
-
 }
