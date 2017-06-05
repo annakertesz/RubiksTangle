@@ -10,8 +10,8 @@ namespace RubiksTangle
         private Board board;
         private Hand hand;
         private int currentField;
-        public static int speed;
         private Form1 form;
+        public static int Speed;
 
         public event CardHandler TryCardEvent;
         public event RemoveHandler RemoveEvent;
@@ -25,72 +25,74 @@ namespace RubiksTangle
         public Game(BoardField[] fields, Form1 runningForm)
         {
             this.board = new Board(fields);
-            this.hand = new Hand(setUpCards());
+            this.hand = new Hand(SetUpCards());
             this.currentField = 1;
-            speed = 200;
+            Speed = 200;
             form = runningForm;
             SubscribeToSpeedChange();
         }
 
+
         private void SubscribeToSpeedChange()
         {
-            form.ChangeSpeedEvent += changeSpeed;
+            form.ChangeSpeedEvent += ChangeSpeed;
         }
 
-        public void startNewGame()
+
+        public void StartNewGame()
         {
-            ThreadPool.QueueUserWorkItem(delegate { makePuzzle(); });
+            ThreadPool.QueueUserWorkItem(delegate { MakePuzzle(); });
         }
 
-        private void changeSpeed(int diff)
+        private void ChangeSpeed(int diff)
         {
-            speed = speed + diff * 100 <= 500 && speed + diff * 100 >= 0 ? speed + diff * 100 : speed;
+            Speed = Speed + diff * 100 <= 500 && Speed + diff * 100 >= 0 ? Speed + diff * 100 : Speed;
         }
 
 
-        public void makePuzzle()
+        public void MakePuzzle()
         {
             Console.WriteLine("I start makePuzzle");
-            while (hand.size() > 0)
+            while (hand.Size > 0)
             {
                 if (currentField > 1)
                 {
-                    board.getField(currentField - 1).removeCard(hand);
+                    board.GetField(currentField - 1).RemoveCard(hand);
                     if (RemoveEvent != null)
                     {
                         RemoveEvent(currentField - 1);
-                        Thread.Sleep(speed);
+                        Thread.Sleep(Speed);
                     }
                 }
-                if (placeCard(currentField - 1)) break;
+                if (PlaceCard(currentField - 1)) break;
             }
         }
 
 
-        private bool placeCard(int indexOfField)
+        private bool PlaceCard(int indexOfField)
         {
             currentField = indexOfField;
             if (currentField == 9) return true;
             if (indexOfField == 0)
             {
-                if (!placeFirstCard()) return false;
-                return placeCard(indexOfField + 1);
+                if (!PlaceFirstCard()) return false;
+                return PlaceCard(indexOfField + 1);
             }
             else
             {
                 foreach (Card card in hand.InHand)
                 {
-                    if (board.getField(indexOfField - 1).wasNeighbour(card)) continue;
+                    if (board.GetField(indexOfField - 1).WasNeighbour(card)) continue;
                     if (TryCardEvent != null)
                     {
                         TryCardEvent(card);
-                        Thread.Sleep(Game.speed/4);
+                        Thread.Sleep(Game.Speed/4);
                     }
-                    if (board.getField(indexOfField).placeCard(card, hand))
+                    if (board.GetField(indexOfField).PlaceCard(card, hand))
                     {
-                        board.getField(indexOfField - 1).addNeighbourhood(card);
+                        board.GetField(indexOfField - 1).AddNeighbourhood(card);
 
-                        return placeCard(indexOfField + 1);
+                        return PlaceCard(indexOfField + 1);
                     }
                 }
                 return false;
@@ -98,48 +100,48 @@ namespace RubiksTangle
         }
 
 
-        private bool placeFirstCard()
+        private bool PlaceFirstCard()
         {
-            BoardField firstField = board.getField(0);
-            if (firstField.isEmpty())
+            BoardField firstField = board.GetField(0);
+            if (firstField.IsEmpty())
             {
-                firstField.placeCard(hand.get(), hand);
-                hand.remove(firstField.Card);
+                firstField.PlaceCard(hand.Get(), hand);
+                hand.Remove(firstField.Card);
                 return true;
             }
             int position = firstField.CardPosition;
             if (position == 3)
             {
-                firstField.removeCard(hand);
-                if (board.triedAllPossibilities()) return false;
+                firstField.RemoveCard(hand);
+                if (board.TriedAllPossibilities()) return false;
                 foreach (Card card in hand.InHand)
                 {
-                    if (board.wasOnFirstPlace(card)) continue;
-                    firstField.placeCard(card, hand);
-                    board.addToHistory(card);
-                    firstField.clearHistory();
+                    if (board.WasOnFirstPlace(card)) continue;
+                    firstField.PlaceCard(card, hand);
+                    board.AddToHistory(card);
+                    firstField.ClearHistory();
                     break;
                 }
             }
             else
             {
-                firstField.turnCard(position + 1);
+                firstField.TurnCard(position + 1);
                 if (TurnEvent != null)
                 {
                     TurnEvent(firstField);
-                    Thread.Sleep(speed/2);
+                    Thread.Sleep(Speed/2);
                 }
             }
             return true;
         }
 
 
-        private ArrayList setUpCards()
+        private ArrayList SetUpCards()
         {
             Card firstA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
             Card secondA = new Card(new Color[] { Color.G, Color.B, Color.R, Color.Y, Color.G, Color.Y, Color.B, Color.R }, "secondA");
             Card thirdA = new Card(new Color[] { Color.B, Color.Y, Color.G, Color.R, Color.B, Color.R, Color.Y, Color.G }, "thirdA");
-            Card forthA = new Card(new Color[] { Color.R, Color.Y, Color.B, Color.G, Color.R, Color.G, Color.Y, Color.B }, "fouthA");
+            Card fourthA = new Card(new Color[] { Color.R, Color.Y, Color.B, Color.G, Color.R, Color.G, Color.Y, Color.B }, "fourthA");
             Card fifthA = new Card(new Color[] { Color.B, Color.R, Color.G, Color.Y, Color.B, Color.Y, Color.R, Color.G }, "fifthA");
             Card sixthA = new Card(new Color[] { Color.Y, Color.B, Color.G, Color.R, Color.Y, Color.R, Color.B, Color.G }, "sixthA");
             Card seventhA = new Card(new Color[] { Color.Y, Color.B, Color.R, Color.G, Color.Y, Color.G, Color.B, Color.R }, "seventhA");
@@ -149,7 +151,7 @@ namespace RubiksTangle
             Card firstB = new Card(new Color[] { Color.G, Color.Y, Color.R, Color.B, Color.G, Color.B, Color.Y, Color.R }, "firstB");
             Card secondB = new Card(new Color[] { Color.Y, Color.G, Color.R, Color.B, Color.Y, Color.B, Color.G, Color.R }, "secondB");
             Card thirdB = new Card(new Color[] { Color.Y, Color.R, Color.G, Color.B, Color.Y, Color.B, Color.R, Color.G }, "thirdB");
-            Card forthB = new Card(new Color[] { Color.R, Color.G, Color.B, Color.Y, Color.R, Color.Y, Color.G, Color.B }, "fouthB");
+            Card fourthB = new Card(new Color[] { Color.R, Color.G, Color.B, Color.Y, Color.R, Color.Y, Color.G, Color.B }, "fourthB");
             Card fifthB = new Card(new Color[] { Color.R, Color.Y, Color.G, Color.B, Color.R, Color.B, Color.Y, Color.G }, "fifthB");
             Card sixthB = new Card(new Color[] { Color.R, Color.B, Color.G, Color.Y, Color.R, Color.Y, Color.B, Color.G }, "sixthB");
             Card seventhB = new Card(new Color[] { Color.B, Color.G, Color.R, Color.Y, Color.B, Color.Y, Color.G, Color.R }, "seventhB");
@@ -160,15 +162,15 @@ namespace RubiksTangle
             firstA.OtherSide = firstB;
             secondA.OtherSide = secondB;
             thirdA.OtherSide = thirdB;
-            forthA.OtherSide = forthB;
+            fourthA.OtherSide = fourthB;
             fifthA.OtherSide = fifthB;
             sixthA.OtherSide = sixthB;
             seventhA.OtherSide = seventhB;
             eighthA.OtherSide = eighthB;
             ninthA.OtherSide = ninthB;
             return new ArrayList(new ArrayList(new Card[] {
-                firstA, secondA, thirdA, forthA, fifthA, sixthA, seventhA, eighthA, ninthA,
-                firstB, secondB, thirdB, forthB, fifthB, sixthB, seventhB, eighthB, ninthB}));
+                firstA, secondA, thirdA, fourthA, fifthA, sixthA, seventhA, eighthA, ninthA,
+                firstB, secondB, thirdB, fourthB, fifthB, sixthB, seventhB, eighthB, ninthB}));
         }
     }
 }

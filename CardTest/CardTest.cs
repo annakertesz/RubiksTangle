@@ -52,7 +52,7 @@ namespace CardTest
         {
             Card cardA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
             Color[] edgeToJoin = new Color[] { Color.B, Color.G };
-            Assert.AreEqual(-1, cardA.isEdgesJoinable(edgeToJoin, 2));
+            Assert.AreEqual(-1, cardA.IsEdgesJoinable(edgeToJoin, 2));
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace CardTest
         {
             Card cardA = new Card(new Color[] { Color.B, Color.Y, Color.R, Color.G, Color.B, Color.G, Color.Y, Color.R }, "firstA");
             Color[] edgeToJoin = new Color[] { Color.G, Color.B };
-            Assert.AreEqual(2, cardA.isEdgesJoinable(edgeToJoin, 0));
+            Assert.AreEqual(2, cardA.IsEdgesJoinable(edgeToJoin, 0));
         }
     }
 }

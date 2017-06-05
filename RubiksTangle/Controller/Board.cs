@@ -1,43 +1,42 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 
 
 namespace RubiksTangle
 {
     public class Board
     {
-        public BoardField[] fields;
-        public ArrayList formerCards;
+        private BoardField[] fields;
+        private ArrayList formerCardsOnFirstField;
 
 
         public Board(BoardField[] fields)
         {
             this.fields = fields;
-            formerCards = new ArrayList();
+            formerCardsOnFirstField = new ArrayList();
         }
 
 
-        public BoardField getField(int index)
+        public BoardField GetField(int index)
         {
             return fields[index];
         }
 
 
-        public bool wasOnFirstPlace(Card card)
+        public bool WasOnFirstPlace(Card card)
         {
-            return formerCards.Contains(card);
+            return formerCardsOnFirstField.Contains(card);
         }
 
 
-        public bool triedAllPossibilities()
+        public bool TriedAllPossibilities()
         {
-            return formerCards.Count == 18;
+            return formerCardsOnFirstField.Count == 18;
         }
 
 
-        public void addToHistory(Card card)
+        public void AddToHistory(Card card)
         {
-            formerCards.Add(card);
+            formerCardsOnFirstField.Add(card);
         }
     }
 }

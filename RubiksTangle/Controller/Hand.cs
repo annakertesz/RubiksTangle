@@ -7,41 +7,32 @@ namespace RubiksTangle
         private ArrayList inHand;
 
         public ArrayList InHand { get => inHand; private set => inHand = value; }
-
+        public int Size { get => InHand.Count; }
         public Hand(ArrayList inHand)
         {
             this.InHand = inHand;
         }
-
-
-        public int size()
-        {
-            return InHand.Count;
-        }
-
-
-        public Card get()
+       
+        
+        public Card Get()
         {
             return (Card)InHand[0];
         }
 
 
-        public void remove(Card card)
+        public void Remove(Card card)
         {
-
             InHand.Remove(card);
             InHand.Remove(card.OtherSide);
         }
 
 
-        public void add(Card card)
+        public void Add(Card card)
         {
             card.ActualPosition = 0;
             card.OtherSide.ActualPosition = 0;
             InHand.Add(card);
             InHand.Add(card.OtherSide);
-        }
-
-
+        }        
     }
 }

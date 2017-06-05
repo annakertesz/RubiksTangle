@@ -9,10 +9,11 @@ namespace RubiksTangle
         private BoardField topDependency;
         private BoardField leftDependency;
         private ArrayList formerNeighbours;
-        public event FieldHandler PlacedEvent;
-        public delegate void FieldHandler(BoardField field);
         private int indexOfField;
 
+        public event FieldHandler PlacedEvent;
+        public delegate void FieldHandler(BoardField field);
+       
         public Card Card { get => card; private set => card = value; }
         public int IndexOfField { get => indexOfField; private set => indexOfField = value; }
         public int CardPosition { get => card.ActualPosition; }
@@ -27,74 +28,74 @@ namespace RubiksTangle
         }
 
 
-        public void removeCard(Hand hand)
+        public void RemoveCard(Hand hand)
         {
-            if (!isEmpty())
+            if (!IsEmpty())
             {
-                hand.add(Card);
+                hand.Add(Card);
             }
         }
         
 
-        public bool placeCard(Card cardToInsert, Hand hand)
+        public bool PlaceCard(Card cardToInsert, Hand hand)
         {
 
             int neededPosition = 4;
             if (topDependency != null)
             {
-                int positionToTop = cardToInsert.isEdgesJoinable(topDependency.Card.getEdge(2), 0);
+                int positionToTop = cardToInsert.IsEdgesJoinable(topDependency.Card.GetEdge(2), 0);
                 if (positionToTop == -1) return false;
                 neededPosition = positionToTop;
             }
             if (leftDependency != null)
             {
-                int positionToLeft = cardToInsert.isEdgesJoinable(leftDependency.Card.getEdge(1), 3);
+                int positionToLeft = cardToInsert.IsEdgesJoinable(leftDependency.Card.GetEdge(1), 3);
                 if (neededPosition == 4 || neededPosition == positionToLeft) neededPosition = positionToLeft;
                 else return false;
             }
             if (neededPosition < 0) return false;
             if (neededPosition == 4) neededPosition = 0;
             cardToInsert.ActualPosition = neededPosition;
-            this.Card = cardToInsert;
+            Card = cardToInsert;
             if (PlacedEvent != null)
             {
                 PlacedEvent(this);
-                Thread.Sleep(Game.speed);
+                Thread.Sleep(Game.Speed);
             }
             
-            clearHistory();
-            hand.remove(cardToInsert);
+            ClearHistory();
+            hand.Remove(cardToInsert);
             return true;
         }
 
 
-        public bool isEmpty() { return Card == null; }
+        public bool IsEmpty()
+        {
+            return Card == null;
+        }
 
        
-
-        public void turnCard(int position)
+        public void TurnCard(int position)
         {
             card.ActualPosition = position;
         }
 
 
-        public bool wasNeighbour(Card card)
+        public bool WasNeighbour(Card card)
         {
             return formerNeighbours.Contains(card);
         }
 
 
-        public void addNeighbourhood(Card card)
+        public void AddNeighbourhood(Card card)
         {
             formerNeighbours.Add(card);
         }
 
 
-        public void clearHistory()
+        public void ClearHistory()
         {
             formerNeighbours = new ArrayList();
-        }
-
-       
+        }       
     }
 }
