@@ -29,7 +29,6 @@ namespace RubiksTangle
         {
             SetUpPictureBoxes();
             fields = GetMyBoard();
-            SetInitialImages();
         }
 
 
@@ -105,19 +104,6 @@ namespace RubiksTangle
             game.TurnEvent += PlaceCard;
             game.TryCardEvent += ShowTriedCard;
             game.RemoveEvent += RemoveCard;
-        }
-
-
-        private void SetInitialImages()
-        {
-
-            Image image = new Bitmap(RubiksTangle.Properties.Resources.semaS);
-
-            foreach (PictureBox pictureBox in pictureBoxList)
-            {
-                pictureBox.Image = image;
-            }
-            fieldForNewCard.Image= image;
         }
 
 
