@@ -193,16 +193,6 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap semaS {
-            get {
-                object obj = ResourceManager.GetObject("semaS", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap seventhA {
             get {
                 object obj = ResourceManager.GetObject("seventhA", resourceCulture);
