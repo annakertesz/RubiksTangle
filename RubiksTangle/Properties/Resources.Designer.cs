@@ -22,7 +22,7 @@ namespace RubiksTangle.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace RubiksTangle.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RubiksTangle.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace RubiksTangle.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eighthA {
+        public static System.Drawing.Bitmap eighthA {
             get {
                 object obj = ResourceManager.GetObject("eighthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eighthB {
+        public static System.Drawing.Bitmap eighthB {
             get {
                 object obj = ResourceManager.GetObject("eighthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +83,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon eighthb_Usf_icon {
+        public static System.Drawing.Icon eighthb_Usf_icon {
             get {
                 object obj = ResourceManager.GetObject("eighthb_Usf_icon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
@@ -93,7 +93,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fifthA {
+        public static System.Drawing.Bitmap fifthA {
             get {
                 object obj = ResourceManager.GetObject("fifthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +103,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fifthB {
+        public static System.Drawing.Bitmap fifthB {
             get {
                 object obj = ResourceManager.GetObject("fifthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +113,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap firstA {
+        public static System.Drawing.Bitmap firstA {
             get {
                 object obj = ResourceManager.GetObject("firstA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +123,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap firstB {
+        public static System.Drawing.Bitmap firstB {
             get {
                 object obj = ResourceManager.GetObject("firstB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +133,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fourthA {
+        public static System.Drawing.Bitmap fourthA {
             get {
                 object obj = ResourceManager.GetObject("fourthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +143,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fourthB {
+        public static System.Drawing.Bitmap fourthB {
             get {
                 object obj = ResourceManager.GetObject("fourthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +153,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ninthA {
+        public static System.Drawing.Bitmap ninthA {
             get {
                 object obj = ResourceManager.GetObject("ninthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +163,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ninthB {
+        public static System.Drawing.Bitmap ninthB {
             get {
                 object obj = ResourceManager.GetObject("ninthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +173,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap secondA {
+        public static System.Drawing.Bitmap secondA {
             get {
                 object obj = ResourceManager.GetObject("secondA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,7 +183,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap secondB {
+        public static System.Drawing.Bitmap secondB {
             get {
                 object obj = ResourceManager.GetObject("secondB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -193,7 +193,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap seventhA {
+        public static System.Drawing.Bitmap seventhA {
             get {
                 object obj = ResourceManager.GetObject("seventhA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +203,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap seventhB {
+        public static System.Drawing.Bitmap seventhB {
             get {
                 object obj = ResourceManager.GetObject("seventhB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,7 +213,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sixthA {
+        public static System.Drawing.Bitmap sixthA {
             get {
                 object obj = ResourceManager.GetObject("sixthA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -223,7 +223,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sixthB {
+        public static System.Drawing.Bitmap sixthB {
             get {
                 object obj = ResourceManager.GetObject("sixthB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,7 +233,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap thirdA {
+        public static System.Drawing.Bitmap thirdA {
             get {
                 object obj = ResourceManager.GetObject("thirdA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -243,7 +243,7 @@ namespace RubiksTangle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap thirdB {
+        public static System.Drawing.Bitmap thirdB {
             get {
                 object obj = ResourceManager.GetObject("thirdB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
