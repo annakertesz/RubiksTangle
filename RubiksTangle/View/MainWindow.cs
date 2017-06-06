@@ -127,7 +127,7 @@ namespace RubiksTangle
         private void SetInitialImages()
         {
 
-            Image image = (Bitmap)rm.GetObject("semaS.jpg");
+            Image image = (Bitmap)rm.GetObject("semaS");
 
             foreach (PictureBox pictureBox in pictureBoxList)
             {
