@@ -27,7 +27,7 @@ namespace RubiksTangle
             this.board = new Board(fields);
             this.hand = new Hand(SetUpCards());
             this.currentField = 1;
-            Speed = 200;
+            Speed = 220;
             form = runningForm;
             SubscribeToSpeedChange();
         }
@@ -46,7 +46,7 @@ namespace RubiksTangle
 
         private void ChangeSpeed(int diff)
         {
-             Speed = Speed + diff * 50 <= 500 && Speed + diff * 50 >= 50 ? Speed + diff * 50 : Speed;
+             Speed = Speed + diff * 50 <= 520 && Speed + diff * 20 >= 50 ? Speed + diff * 50 : Speed;
         }
 
 
