@@ -46,7 +46,7 @@ namespace RubiksTangle
 
         private void ChangeSpeed(int diff)
         {
-            Speed = Speed + diff * 100 <= 500 && Speed + diff * 100 >= 0 ? Speed + diff * 100 : Speed;
+             Speed = Speed + diff * 50 <= 500 && Speed + diff * 50 >= 50 ? Speed + diff * 50 : Speed;
         }
 
 
